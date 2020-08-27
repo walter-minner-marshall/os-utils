@@ -11,3 +11,9 @@ Link ShellExtension can also be installed via chocolatey by issuing
 `choco install linkshellextension`
 
 from a command prompt. Make sure you have chocolatey installed. The current user must have administrator privileges in order to install the software via choco
+
+
+## Bash Profile
+This file is loaded before Terminal loads your shell environment and contains all the startup configuration and preferences for your command line interface.
+
+Bash Profile changes to `# Variables` are needed to change directories to your folder structure.
