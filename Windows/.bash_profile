@@ -7,6 +7,7 @@ G1_MAIN_PRESENTATION='C:\\G1\\g1-main\\G1_Baseline\\src\\SpaFinder.SpaBooker\\Pr
 G1_MICRO_ROOT='C:\\G1\\g1-svc-micro\\'
 G1_LEGACY_ROOT='C:\\G1\\g1-svc-legacypayments\\'
 
+USER_ROOT='C:\\Users\\a206505611'
 USER_DATA_ROOT='C:\\Users\\a206505611\\UserData'
 G1_DB_ROOT='//Mac/AllFiles/Users/a206505611/Dev/G1/g1-database'
 MAC_ROOT='//Mac/AllFiles'
@@ -62,7 +63,7 @@ alias df='df -kTh'
 alias sizedir='du -sh ./*'
 
 # Applications
-alias editbash="nano 'C:\\Users\\a206505611\\.bash_profile'"
+alias editbash="nano '$USER_ROOT\\.bash_profile'"
 alias nginx="'C:\\nginx\\nginx.exe'"
 
 alias pass="cat 'C:\\Users\\a206505611\\UserData\\passwords.js'"
@@ -231,7 +232,7 @@ function cleang1()
 function purge()
 {
   local dbName='GolfNowOne'
-  local scriptPath='C:\\Users\\a206505611\\UserData\\run_spa_purge.sql'
+  local scriptPath='$USER_DATA_ROOT\\run_spa_purge.sql'
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1
 }
 
@@ -239,7 +240,7 @@ function purge()
 function csnap()
 {
   local dbName='GolfNowOne'
-  local scriptPath='C:\\Users\\a206505611\\UserData\\create_snapshot.sql'
+  local scriptPath='$USER_DATA_ROOT\\create_snapshot.sql'
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1
 }
 
@@ -247,7 +248,7 @@ function csnap()
 function rsnap()
 {
   local dbName='GolfNowOne'
-  local scriptPath='C:\\Users\\a206505611\\UserData\\restore_snapshot.sql'
+  local scriptPath='$USER_DATA_ROOT\\restore_snapshot.sql'
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1	
 }
 
@@ -255,6 +256,6 @@ function rsnap()
 function dsnap()
 {
   local dbName='GolfNowOne'
-  local scriptPath='C:\\Users\\a206505611\\UserData\\delete_snapshot.sql'
+  local scriptPath='$USER_DATA_ROOT\\delete_snapshot.sql'
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1
 }
