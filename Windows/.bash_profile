@@ -66,10 +66,8 @@ alias sizedir='du -sh ./*'
 alias editbash="nano '$USER_ROOT\\.bash_profile'"
 alias nginx="'C:\\nginx\\nginx.exe'"
 
-alias pass="cat 'C:\\Users\\a206505611\\UserData\\passwords.js'"
-alias editpass="nano 'C:\\Users\\a206505611\\UserData\\passwords.js'"
-alias ssos="cat 'C:\\Users\\a206505611\\UserData\\ssos.js'"
-alias editssos="nano 'C:\\Users\\a206505611\\UserData\\ssos.js'"
+alias pass="cat '$USER_DATA_ROOT\\passwords.js'"
+alias editpass="nano '$USER_DATA_ROOT\\passwords.js'"
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
