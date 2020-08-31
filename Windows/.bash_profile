@@ -230,7 +230,7 @@ function cleang1()
 function purge()
 {
   local dbName='GolfNowOne'
-  local scriptPath='$USER_DATA_ROOT\\run_spa_purge.sql'
+  local scriptPath="$USER_DATA_ROOT\run_spa_purge.sql"
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1
 }
 
@@ -238,7 +238,7 @@ function purge()
 function csnap()
 {
   local dbName='GolfNowOne'
-  local scriptPath='$USER_DATA_ROOT\\create_snapshot.sql'
+  local scriptPath="$USER_DATA_ROOT\create_snapshot.sql"
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1
 }
 
@@ -246,7 +246,7 @@ function csnap()
 function rsnap()
 {
   local dbName='GolfNowOne'
-  local scriptPath='$USER_DATA_ROOT\\restore_snapshot.sql'
+  local scriptPath="$USER_DATA_ROOT\restore_snapshot.sql"
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1	
 }
 
@@ -254,6 +254,6 @@ function rsnap()
 function dsnap()
 {
   local dbName='GolfNowOne'
-  local scriptPath='$USER_DATA_ROOT\\delete_snapshot.sql'
+  local scriptPath="$USER_DATA_ROOT\delete_snapshot.sql"
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1
 }
