@@ -4,7 +4,7 @@ I created these utilities to make my life easier. Hopefully they do the same for
 ## MacOS Hard Links
 The Mac utilities take advantage of hard links. The hard links will be created for use in directories where you would like to place the files for use.
 
-Hard links can only be created in Terminal with the command `ln oldfilename newlinkname`. 
+Hard links can only be created in Terminal with the command `ln oldfilename newlinkname`.
 When listed using `ls -la` you will see identical information for the original file and its hard link, because the two different names refer to exactly the same object.
 
 More information can be found here [Information](https://eclecticlight.co/2019/01/05/aliases-hard-links-symlinks-and-copies-in-mojaves-apfs/)
