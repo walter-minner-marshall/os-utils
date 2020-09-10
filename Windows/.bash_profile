@@ -124,7 +124,21 @@ alias sordstrings="git diff > 'C:\\G1\\g1-svc-micro\\order_connectionStrings.pat
 # Branch
 alias delbranch="git branch -D"
 
+#-------------------------------------------------------------
+# NPM
+#-------------------------------------------------------------
+alias g1npm="cd $G1_MAIN_PRESENTATION && npm i && cd -"
+
+
+
+
+
+#-------------------------------------------------------------
+# Functions
+#-------------------------------------------------------------
+#-------------------
 # Custom Functions
+#-------------------
 function mstrings()
 {
 	local microDir='C:/G1/g1-svc-micro/'
@@ -132,7 +146,6 @@ function mstrings()
 
 	git apply --ignore-space-change --ignore-whitespace --unsafe-paths $patchPath
 }
-
 
 function stash()
 {
@@ -181,42 +194,6 @@ function hotfix()
 	echo -e "\ngit checkout -b <hotfixname> <tagnumber>"
 }
 
-#-------------------
-# Custom Functions
-#-------------------
-function batman()
-{
-	reload
-	'clear'
-
-	echo -e "																		 "
-	echo -e "MMMMMMMMMMMMMMMMMMMMM.                             MMMMMMMMMMMMMMMMMMMMM"
-	echo -e " .MMMMMMMMMMMMMMMMMMMM           M\  /M           MMMMMMMMMMMMMMMMMMMM. "
-	echo -e "   .MMMMMMMMMMMMMMMMMMM          MMMMMM          MMMMMMMMMMMMMMMMMMM.   "
-	echo -e "     MMMMMMMMMMMMMMMMMMM-_______MMMMMMMM_______-MMMMMMMMMMMMMMMMMMM     "
-	echo -e "      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      "
-	echo -e "      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      "
-	echo -e "      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      "
-	echo -e "     .MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.     "
-	echo -e "    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    "
-	echo -e "                   .MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.                   "
-	echo -e "                          .MMMMMMMMMMMMMMMMMM.                          "
-	echo -e "                              .MMMMMMMMMM.                              "
-	echo -e "                                 MMMMMM                                 "
-	echo -e "                                  MMMM                                  "
-	echo -e "                                   MM                                   "
-	echo -e "True heroism is remarkably sober, very undramatic. It is not the urge to"
-	echo -e "surpass all others at whatever cost, but the urge to serve others at whatever cost."
-}
-
-#Machine information functions
-function mach()
-{
-    echo -e "\nMachine information:" ; uname -a
-    echo -e "\nCurrent date :" ; date
-    echo -e "\nFilesystem status :"; df -h
-}
-
 # Clean G1
 function cleang1()
 {
@@ -256,4 +233,40 @@ function dsnap()
   local dbName='GolfNowOne'
   local scriptPath="$USER_DATA_ROOT\delete_snapshot.sql"
   sqlcmd -d $dbName -E -i $scriptPath -e -r -m 1
+}
+
+#-------------------
+# Personal Functions
+#-------------------
+function batman()
+{
+	reload
+	'clear'
+
+	echo -e "																		 "
+	echo -e "MMMMMMMMMMMMMMMMMMMMM.                             MMMMMMMMMMMMMMMMMMMMM"
+	echo -e " .MMMMMMMMMMMMMMMMMMMM           M\  /M           MMMMMMMMMMMMMMMMMMMM. "
+	echo -e "   .MMMMMMMMMMMMMMMMMMM          MMMMMM          MMMMMMMMMMMMMMMMMMM.   "
+	echo -e "     MMMMMMMMMMMMMMMMMMM-_______MMMMMMMM_______-MMMMMMMMMMMMMMMMMMM     "
+	echo -e "      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      "
+	echo -e "      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      "
+	echo -e "      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      "
+	echo -e "     .MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.     "
+	echo -e "    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM    "
+	echo -e "                   .MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.                   "
+	echo -e "                          .MMMMMMMMMMMMMMMMMM.                          "
+	echo -e "                              .MMMMMMMMMM.                              "
+	echo -e "                                 MMMMMM                                 "
+	echo -e "                                  MMMM                                  "
+	echo -e "                                   MM                                   "
+	echo -e "True heroism is remarkably sober, very undramatic. It is not the urge to"
+	echo -e "surpass all others at whatever cost, but the urge to serve others at whatever cost."
+}
+
+#Machine information functions
+function mach()
+{
+    echo -e "\nMachine information:" ; uname -a
+    echo -e "\nCurrent date :" ; date
+    echo -e "\nFilesystem status :"; df -h
 }
