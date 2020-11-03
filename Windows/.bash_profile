@@ -103,23 +103,22 @@ export GREP_COLOR='1;35;40'
 
 # Patch
 alias papply="git apply"
+alias gdiff="git diff --ignore-space-at-eol -b -w --ignore-blank-lines"
 
-alias g1strings="git apply --reject --whitespace=fix --unsafe-paths --directory='C:/G1/g1-main/' 'C:\\G1\\g1_connectionStrings.patch'"
-alias sg1strings="git diff > 'C:\\G1\\g1_connectionStrings.patch'"
+alias g1strings="git apply --reject --whitespace=nowarn --unsafe-paths --directory='C:/G1/g1-main/' 'C:\\G1\\g1_connectionStrings.patch'"
+alias sg1strings="gdiff > 'C:\\G1\\g1_connectionStrings.patch'"
 
 alias pacb="git apply 'C:\\G1\\accountBalanceBRS.patch'"
-alias sacb="git diff > 'C:\\G1\\accountBalanceBRS.patch'"
+alias sacb="gdiff > 'C:\\G1\\accountBalanceBRS.patch'"
 
-alias pmem="git apply --reject --whitespace=fix --unsafe-paths --directory='C:/G1/g1-main/' 'C:\\G1\\membershipBRS.patch'"
-alias smem="git diff > 'C:\\G1\\membershipBRS.patch'"
+alias pmem="git apply --reject --whitespace=nowarn --unsafe-paths --directory='C:/G1/g1-main/' 'C:\\G1\\membershipBRS.patch'"
+alias smem="gdiff > 'C:\\G1\\membershipBRS.patch'"
 
-alias scomstrings="git diff > 'C:\\G1\\g1-svc-micro\\common_connectionStrings.patch'"
-alias sdevstrings="git diff > 'C:\\G1\\g1-svc-micro\\dev_connectionStrings.patch'"
-alias sapistrings="git diff > 'C:\\G1\\g1-svc-micro\\api_connectionStrings.patch'"
-alias scatstrings="git diff > 'C:\\G1\\g1-svc-micro\\catalog_connectionStrings.patch'"
-alias smanstrings="git diff > 'C:\\G1\\g1-svc-micro\\management_connectionStrings.patch'"
-alias scusstrings="git diff > 'C:\\G1\\g1-svc-micro\\customer_connectionStrings.patch'"
-alias sordstrings="git diff > 'C:\\G1\\g1-svc-micro\\order_connectionStrings.patch'"
+alias sapistrings="gdiff > '$G1_MICRO_ROOT\\api_connectionStrings.patch'"
+alias scatstrings="gdiff > '$G1_MICRO_ROOT\\catalog_connectionStrings.patch'"
+alias smanstrings="gdiff > '$G1_MICRO_ROOT\\management_connectionStrings.patch'"
+alias scusstrings="gdiff > '$G1_MICRO_ROOT\\customer_connectionStrings.patch'"
+alias sordstrings="gdiff > '$G1_MICRO_ROOT\\order_connectionStrings.patch'"
 
 # Branch
 alias delbranch="git branch -D"
@@ -130,21 +129,86 @@ alias delbranch="git branch -D"
 alias g1npm="cd $G1_MAIN_PRESENTATION && npm i && cd -"
 
 
-
-
-
 #-------------------------------------------------------------
 # Functions
 #-------------------------------------------------------------
 #-------------------
 # Custom Functions
 #-------------------
-function mstrings()
+function chgbr()
 {
-	local microDir='C:/G1/g1-svc-micro/'
-	local patchPath='C:\\G1\\g1-svc-micro\\common_connectionStrings.patch'
+    if [[ -z "$1" ]]; then
+		echo -e "\nUsage: chgbr <branch_name> or chgbr -all <branch_name>"
+        git branch
+	elif [[ -z "$2" ]]; then
+    	declare -r branch="$1"
+		echo -e "\nChanging git branch to '$branch' on $PWD"
+		git fetch --all
+		git stash save chgbrTemp
+		git checkout $branch
+	elif [[ "$1" = "-all" && ! -z "$2" ]]; then
+		declare -r branch="$2"
+		echo -e "\nChanging all available git branches to '$branch'"
+		cd $G1_MAIN_ROOT
+		chgbr $branch
+		cd $G1_MICRO_ROOT\\g1-common
+		chgbr $branch
+		cd $G1_MICRO_ROOT\\g1-svc-api
+		chgbr $branch
+		cd $G1_MICRO_ROOT\\g1-svc-catalog
+		chgbr $branch
+		cd $G1_MICRO_ROOT\\g1-svc-management
+		chgbr $branch
+		cd $G1_MICRO_ROOT\\g1-svc-customer
+		chgbr $branch
+		cd $G1_MICRO_ROOT\\g1-svc-order
+		chgbr $branch
+		cd ..
+		echo -e "\ndone"
+	else
+		echo -e "\nUsage: chgbr <branch_name> or chgbr -all <branch_name>"
+		echo -e "Parameter usage: -all is the only acceptable parameter"
+		git branch
+	fi
+}
 
-	git apply --ignore-space-change --ignore-whitespace --unsafe-paths $patchPath
+function papistrings()
+{
+	local apiPath='C:/G1/g1-svc-micro/g1-svc-api/'
+	local apiPatchPath="$G1_MICRO_ROOT\\api_connectionStrings.patch"
+	git apply --reject --ignore-space-change --ignore-whitespace --unsafe-paths --directory=$apiPath $apiPatchPath
+}
+function pcatstrings()
+{
+	local catalogPath='C:/G1/g1-svc-micro/g1-svc-catalog/'
+	local catalogPatchPath="$G1_MICRO_ROOT\\catalog_connectionStrings.patch"
+	git apply --reject --ignore-space-change --ignore-whitespace --unsafe-paths --directory=$catalogPath $catalogPatchPath
+}
+function pmanstrings()
+{
+	local managementPath='C:/G1/g1-svc-micro/g1-svc-management/'
+	local managementPatchPath="$G1_MICRO_ROOT\\management_connectionStrings.patch"
+	git apply --reject --ignore-space-change --ignore-whitespace --unsafe-paths --directory=$managementPath $managementPatchPath
+}
+function pcusstrings()
+{
+	local customerPath='C:/G1/g1-svc-micro/g1-svc-customer/'
+	local customerPatchPath="$G1_MICRO_ROOT\\customer_connectionStrings.patch"
+	git apply --reject --ignore-space-change --ignore-whitespace --unsafe-paths --directory=$customerPath $customerPatchPath
+}
+function pordstrings()
+{
+	local orderPath='C:/G1/g1-svc-micro/g1-svc-order/'
+	local orderPatchPath="$G1_MICRO_ROOT\\order_connectionStrings.patch"
+	git apply --reject --ignore-space-change --ignore-whitespace --unsafe-paths --directory=$orderPath $orderPatchPath	
+}
+function psvcstrings()
+{
+	papistrings
+	pcatstrings
+	pmanstrings
+	pcusstrings
+	pordstrings
 }
 
 function stash()
