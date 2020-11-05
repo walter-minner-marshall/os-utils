@@ -172,6 +172,35 @@ function chgbr()
 	fi
 }
 
+function pullgbr()
+{
+    if [[ -z "$1" ]]; then
+		echo -e "\nPulling remote changes into git branch on $PWD"
+		git pull
+	elif [[ "$1" = "-all" ]]; then
+		echo -e "\nPulling remote changes into all available git branches"
+		cd $G1_MAIN_ROOT
+		pullgbr
+		cd $G1_MICRO_ROOT\\g1-common
+		pullgbr
+		cd $G1_MICRO_ROOT\\g1-svc-api
+		pullgbr
+		cd $G1_MICRO_ROOT\\g1-svc-catalog
+		pullgbr
+		cd $G1_MICRO_ROOT\\g1-svc-management
+		pullgbr
+		cd $G1_MICRO_ROOT\\g1-svc-customer
+		pullgbr
+		cd $G1_MICRO_ROOT\\g1-svc-order
+		pullgbr
+		cd ..
+		echo -e "\ndone"
+	else
+		echo -e "\nUsage: pullgbr or pullgbr -all"
+		echo -e "Parameter usage: -all is the only acceptable parameter"
+	fi
+}
+
 function papistrings()
 {
 	local apiPath='C:/G1/g1-svc-micro/g1-svc-api/'
