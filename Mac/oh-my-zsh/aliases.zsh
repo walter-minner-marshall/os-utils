@@ -10,6 +10,7 @@
 G1_DATABASE=~/Dev/G1/g1-database
 APP_EVENTS=~/Dev/G1/phx-app-events-web
 TEESHEET=~/Dev/sites/dev.brsgolf.com
+G1_MICRO_ROOT=~/Dev/G1/g1-svc-micro
 
 alias zshedit="atom ~/.zshrc"
 alias ohmyzsh="atom ~/.oh-my-zsh"
@@ -42,6 +43,7 @@ alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias db="cd $G1_DATABASE"
 alias appevents="cd $APP_EVENTS"
 alias teesheet="cd $TEESHEET"
+alias micro="cd $G1_MICRO_ROOT"
 
 # Git Stashing
 alias clearstash="git stash clear"
