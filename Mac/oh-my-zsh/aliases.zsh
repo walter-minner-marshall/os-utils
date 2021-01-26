@@ -8,6 +8,7 @@
 # brainstormr=~/Projects/development/planetargon/brainstormr
 # cd $brainstormr
 G1_DATABASE=~/Dev/G1/g1-database
+DOCKER_DB=~/Dev/G1/g1-svc-micro/g1-dev/docker-db
 APP_EVENTS=~/Dev/G1/phx-app-events-web
 TEESHEET=~/Dev/sites/dev.brsgolf.com
 G1_MICRO_ROOT=~/Dev/G1/g1-svc-micro
@@ -30,7 +31,7 @@ alias ping='ping -c 3'
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 # Atom
-alias editbash='atom ~/.oh-my-zsh/custom/aliases.zsh'
+alias editbash='atom ~/Dev/os-utils/Mac/oh-my-zsh/aliases.zsh'
 
 # Chrome
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
@@ -44,6 +45,7 @@ alias db="cd $G1_DATABASE"
 alias appevents="cd $APP_EVENTS"
 alias teesheet="cd $TEESHEET"
 alias micro="cd $G1_MICRO_ROOT"
+alias dockerdb="cd $DOCKER_DB"
 
 # Git Stashing
 alias clearstash="git stash clear"
@@ -79,3 +81,8 @@ alias klogin='kubectl exec -it stage-app-events-mgo-1-667c67bbdf-2js8g -- /bin/b
 alias tsrun="cd $TEESHEET && make dev-run && cd -"
 alias tsstop="cd $TEESHEET && make dev-stop && cd -"
 alias tsclear="cd $TEESHEET && make dev-clear && cd -"
+
+#G1 database
+
+alias dbrun="cd $DOCKER_DB && docker-compose up -d && cd -"
+alias dbstop="cd $DOCKER_DB && docker-compose down && cd -"
