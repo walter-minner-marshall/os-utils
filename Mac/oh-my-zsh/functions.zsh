@@ -55,7 +55,9 @@ function pullgbr()
 {
     if [[ -z "$1" ]]; then
 		echo -e "\nPulling remote changes into git branch on $PWD"
+		git stash
 		git pull
+		git stash apply
 	elif [[ "$1" = "-all" ]]; then
 		echo -e "\nPulling remote changes into all available git branches"
 		cd $G1_MICRO_ROOT/g1-common
