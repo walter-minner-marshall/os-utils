@@ -12,9 +12,10 @@ DOCKER_DB=~/Dev/G1/g1-svc-micro/g1-dev/docker-db
 APP_EVENTS=~/Dev/G1/phx-app-events-web
 TEESHEET=~/Dev/sites/dev.brsgolf.com
 G1_MICRO_ROOT=~/Dev/G1/g1-svc-micro
+G1_MAIN_ROOT=~/Dev/G1/g1-main
 
-alias zshedit="atom ~/.zshrc"
-alias ohmyzsh="atom ~/.oh-my-zsh"
+alias zshedit="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
 alias reload="source ~/.zshrc"
 
 # Hosts
@@ -27,14 +28,8 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 # Ping
 alias ping='ping -c 3'
 
-# Sublime
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-
-# Atom
-alias editbash='atom ~/Dev/os-utils/Mac/oh-my-zsh/aliases.zsh'
-
-# Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+# Edit
+alias editbash='code ~/Dev/os-utils/Mac/oh-my-zsh/aliases.zsh'
 
 ###############################################
 # Git
@@ -46,6 +41,7 @@ alias appevents="cd $APP_EVENTS"
 alias teesheet="cd $TEESHEET"
 alias micro="cd $G1_MICRO_ROOT"
 alias dockerdb="cd $DOCKER_DB"
+alias main="cd $G1_MAIN_ROOT"
 
 # Git Stashing
 alias clearstash="git stash clear"
