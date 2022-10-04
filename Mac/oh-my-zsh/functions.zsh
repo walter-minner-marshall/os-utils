@@ -80,6 +80,59 @@ function pullgbr()
 	fi
 }
 
+
+function existgbr()
+{
+    if [[ -z "$1" ]]; then
+		echo -e "\nUsage: existgbr <branch_name> or existgbr -all <branch_name>"
+	elif [[ -z "$2" ]]; then
+    	declare -r branch="$1"
+		echo -e "\nChecking for git remote branch with name '$branch' on $PWD"
+		git ls-remote --heads origin | egrep refs/heads/$branch
+	elif [[ "$1" = "-all" && ! -z "$2" ]]; then
+		declare -r branch="$2"
+		echo -e "\nChecking all available repos for git branches with name '$branch'"
+		cd $G1_MAIN_ROOT
+		echo -e "g1-main"
+		git ls-remote --heads origin | egrep refs/heads/$branch
+		cd $G1_DATABASE
+		echo -e "g1-database"
+		git ls-remote --heads origin | egrep refs/heads/$branch		
+		cd $G1_MICRO_ROOT/g1-common
+		echo -e "g1-common"
+		git ls-remote --heads origin | egrep refs/heads/$branch
+		cd $G1_MICRO_ROOT/g1-svc-api
+		echo -e "g1-svc-api"
+		git ls-remote --heads origin | egrep refs/heads/$branch
+		cd $G1_MICRO_ROOT/g1-svc-catalog
+		echo -e "g1-svc-catalog"
+		git ls-remote --heads origin | egrep refs/heads/$branch
+		cd $G1_MICRO_ROOT/g1-svc-management
+		echo -e "g1-svc-management"
+		git ls-remote --heads origin | egrep refs/heads/$branch
+		cd $G1_MICRO_ROOT/g1-svc-customer
+		echo -e "g1-svc-customer"
+		git ls-remote --heads origin | egrep refs/heads/$branch
+		cd $G1_MICRO_ROOT/g1-svc-order
+		echo -e "g1-svc-order"
+		git ls-remote --heads origin | egrep refs/heads/$branch
+		cd $G1_MICRO_ROOT/g1-svc-kds
+		echo -e "g1-svc-kds"
+		git ls-remote --heads origin | egrep refs/heads/$branch	
+		cd $G1_MICRO_ROOT/g1-svc-report
+		echo -e "g1-svc-report"
+		git ls-remote --heads origin | egrep refs/heads/$branch			
+		cd $G1_ROOT/g1-svc-membership
+		echo -e "g1-svc-membership"
+		git ls-remote --heads origin | egrep refs/heads/$branch			
+		cd ..
+		echo -e "\ndone"
+	else
+		echo -e "\nUsage: existgbr <branch_name> or existgbr -all <branch_name>"
+		echo -e "Parameter usage: -all is the only acceptable parameter"
+	fi	
+}
+
 ###############################################
 # Other Functions
 ###############################################

@@ -13,6 +13,7 @@ APP_EVENTS=~/Dev/G1/phx-app-events-web
 TEESHEET=~/Dev/sites/dev.brsgolf.com
 G1_MICRO_ROOT=~/Dev/G1/g1-svc-micro
 G1_MAIN_ROOT=~/Dev/G1/g1-main
+G1_ROOT=~/Dev/G1
 
 alias zshedit="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
