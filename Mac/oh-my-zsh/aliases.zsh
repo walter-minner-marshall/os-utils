@@ -30,7 +30,8 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 alias ping='ping -c 3'
 
 # Edit
-alias editbash='code ~/Dev/os-utils/Mac/oh-my-zsh/aliases.zsh'
+#alias editbash='code ~/Dev/os-utils/Mac/oh-my-zsh/aliases.zsh'
+alias editbash='code ~/Dev/os-utils/Mac/oh-my-zsh'
 
 ###############################################
 # Git
