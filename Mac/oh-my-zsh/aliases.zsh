@@ -66,10 +66,10 @@ alias klogs='kubectl logs -f phx-api-app-events-7c9567f7b8-lc5qf'
 alias klogin='kubectl exec -it stage-app-events-mgo-1-667c67bbdf-2js8g -- /bin/bash'
 
 # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/a206505611/google-cloud-sdk/path.bash.inc' ]; then . '/Users/a206505611/google-cloud-sdk/path.bash.inc'; fi
+ if [ -f '/usr/local/Caskroom/google-cloud-sdk/path.bash.inc' ]; then . '/usr/local/Caskroom/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-# if [ -f '/Users/a206505611/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/a206505611/google-cloud-sdk/completion.bash.inc'; fi
+ if [ -f '/usr/local/Caskroom/google-cloud-sdk/completion.bash.inc' ]; then . '/usr/local/Caskroom/google-cloud-sdk/completion.bash.inc'; fi
 
 ###############################################
 # Docker/Kubernetes
