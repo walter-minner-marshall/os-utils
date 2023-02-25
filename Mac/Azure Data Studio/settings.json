@@ -1,0 +1,242 @@
+{
+    "datasource.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "C777F06B-202E-4480-B475-FA416154D458"
+        },
+        {
+            "name": "GolfNow",
+            "id": "df521eca-20e3-44fa-881f-9547a53fedf6",
+            "parentId": "C777F06B-202E-4480-B475-FA416154D458",
+            "color": "#4452A6",
+            "description": ""
+        }
+    ],
+    "datasource.connections": [
+        {
+            "options": {
+                "connectionName": "ALFRED-VM",
+                "server": "192.168.10.4",
+                "database": "",
+                "authenticationType": "SqlLogin",
+                "user": "gndev",
+                "password": "",
+                "applicationName": "azdata",
+                "groupId": "C777F06B-202E-4480-B475-FA416154D458",
+                "databaseDisplayName": ""
+            },
+            "groupId": "C777F06B-202E-4480-B475-FA416154D458",
+            "providerName": "MSSQL",
+            "savePassword": true,
+            "id": "a8ddc226-f943-4fea-b3f0-e9f8ec92a4db"
+        },
+        {
+            "options": {
+                "connectionName": "D020",
+                "server": "USHGNDBWD020.stg-tfayd.com\\I0007DS01,4070",
+                "database": "",
+                "authenticationType": "SqlLogin",
+                "user": "gnDEV",
+                "password": "",
+                "trustServerCertificate": true,
+                "applicationName": "azdata",
+                "groupId": "df521eca-20e3-44fa-881f-9547a53fedf6",
+                "databaseDisplayName": ""
+            },
+            "groupId": "df521eca-20e3-44fa-881f-9547a53fedf6",
+            "providerName": "MSSQL",
+            "savePassword": true,
+            "id": "eb3911f7-a3d7-4926-8794-feb4127bbfde"
+        },
+        {
+            "options": {
+                "connectionName": "DOCKER-DB",
+                "server": "127.0.0.1",
+                "database": "",
+                "authenticationType": "SqlLogin",
+                "user": "gnDEV",
+                "password": "",
+                "connectTimeout": "30",
+                "connectRetryCount": "1",
+                "connectRetryInterval": "10",
+                "applicationName": "azdata",
+                "groupId": "C777F06B-202E-4480-B475-FA416154D458",
+                "databaseDisplayName": ""
+            },
+            "groupId": "C777F06B-202E-4480-B475-FA416154D458",
+            "providerName": "MSSQL",
+            "savePassword": true,
+            "id": "bdc3145e-2b22-4d82-a911-36807258bcae"
+        },
+        {
+            "options": {
+                "connectionName": "",
+                "server": "LSNRGNP111,4070",
+                "database": "",
+                "authenticationType": "SqlLogin",
+                "user": "gnDEV",
+                "password": "",
+                "trustServerCertificate": true,
+                "applicationName": "azdata",
+                "groupId": "df521eca-20e3-44fa-881f-9547a53fedf6",
+                "databaseDisplayName": ""
+            },
+            "groupId": "df521eca-20e3-44fa-881f-9547a53fedf6",
+            "providerName": "MSSQL",
+            "savePassword": true,
+            "id": "10411435-c067-427d-9140-d32358da1bd0"
+        },
+        {
+            "options": {
+                "connectionName": "",
+                "server": "USHGNDBWP010,4070",
+                "database": "",
+                "authenticationType": "SqlLogin",
+                "user": "gnDEV",
+                "password": "",
+                "applicationIntent": "ReadWrite",
+                "connectTimeout": 15,
+                "currentLanguage": "",
+                "columnEncryptionSetting": "Disabled",
+                "attestationProtocol": null,
+                "enclaveAttestationUrl": "",
+                "encrypt": false,
+                "persistSecurityInfo": false,
+                "trustServerCertificate": false,
+                "connectRetryCount": 1,
+                "connectRetryInterval": 10,
+                "applicationName": "azdata",
+                "workstationId": "",
+                "pooling": true,
+                "maxPoolSize": 100,
+                "minPoolSize": 0,
+                "loadBalanceTimeout": 0,
+                "replication": false,
+                "attachDbFilename": "",
+                "failoverPartner": "",
+                "multiSubnetFailover": false,
+                "multipleActiveResultSets": false,
+                "packetSize": 8000,
+                "typeSystemVersion": "Latest",
+                "groupId": "df521eca-20e3-44fa-881f-9547a53fedf6",
+                "databaseDisplayName": ""
+            },
+            "groupId": "df521eca-20e3-44fa-881f-9547a53fedf6",
+            "providerName": "MSSQL",
+            "savePassword": true,
+            "id": "03fa384c-08ab-486d-960e-86983f6c52b0"
+        }
+    ],
+    "workbench.sideBar.location": "right",
+    "dashboard.database.widgets": [
+        {
+            "name": "Space Used by Tables",
+            "gridItemConfig": {
+                "sizex": 2,
+                "sizey": 1
+            },
+            "widget": {
+                "table-space-db-insight": null
+            }
+        },
+        {
+            "name": "Tasks",
+            "gridItemConfig": {
+                "sizex": 1,
+                "sizey": 1
+            },
+            "widget": {
+                "tasks-widget": [
+                    {
+                        "name": "backup",
+                        "when": "!mssql:iscloud"
+                    },
+                    {
+                        "name": "restore",
+                        "when": "!mssql:iscloud"
+                    },
+                    "configureDashboard",
+                    "newQuery"
+                ]
+            }
+        },
+        {
+            "name": "Search",
+            "gridItemConfig": {
+                "sizex": 1,
+                "sizey": 2
+            },
+            "widget": {
+                "explorer-widget": {}
+            }
+        }
+    ],
+    "dashboard.database.properties": true,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorStyle": "underline-thin",
+    "breadcrumbs.enabled": true,
+    "accounts.azure.enablePublicCloud": false,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "git.autofetch": true,
+    "mssql.format.datatypeCasing": "uppercase",
+    "mssql.format.keywordCasing": "uppercase",
+    "mssql.format.alignColumnDefinitionsInColumns": true,
+    "mssql.format.placeCommasBeforeNextStatement": true,
+    "mssql.format.placeSelectStatementReferencesOnNewLine": true,
+    "explorer.confirmDelete": false,
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.enablePreviewFeatures": true,
+    "editor.minimap.enabled": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.editor.highlightModifiedTabs": true,
+    "window.restoreFullscreen": true,
+    "search.showLineNumbers": true,
+    "git.showPushSuccessNotification": true,
+    "merge-conflict.autoNavigateNextConflict.enabled": true,
+    "git.confirmSync": false,
+    "workbench.startupEditor": "welcomePage",
+    "[sql]": {
+        "editor.defaultFormatter": "Microsoft.mssql"
+    },
+    "editor.defaultFormatter": "WSRPublishing.poor-sql-formatter",
+    "poorSql.spaceAfterExpandedComma": false,
+    "poorSql.tabIndent": true,
+    "explorer.confirmDragAndDrop": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "[git-commit]": {
+
+        "editor.rulers": [
+            72
+        ],
+        "workbench.editor.restoreViewState": false
+    },
+    "profiler.filters": [
+        {
+            "name": "default",
+            "clauses": [
+                {
+                    "field": "EventClass",
+                    "operator": 1,
+                    "value": "login"
+                },
+                {
+                    "field": "EventClass",
+                    "operator": 1,
+                    "value": "logout"
+                },
+                {
+                    "field": "EventClass",
+                    "operator": 1,
+                    "value": "rpc_completed"
+                }
+            ]
+        }
+    ],
+    "workbench.editorAssociations": {
+        "*.{sqlplan}": "workbench.editor.executionplan"
+    }
+}
