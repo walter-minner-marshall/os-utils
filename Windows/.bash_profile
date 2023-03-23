@@ -2,14 +2,14 @@
 alias reload='source ~/.bash_profile'
 
 # Variables
-G1_MAIN_ROOT='C:\\G1\\g1-main\\'
-G1_MAIN_PRESENTATION='C:\\G1\\g1-main\\G1_Baseline\\src\\SpaFinder.SpaBooker\\Presentation\\SpaFinder.SpaBooker.WebApps.Admin\\'
-G1_MICRO_ROOT='C:\\G1\\g1-svc-micro\\'
-G1_LEGACY_ROOT='C:\\G1\\g1-svc-legacypayments\\'
+G1_MAIN_ROOT='C:\\Dev\\G1\\g1-main\\'
+G1_MAIN_PRESENTATION='C:\\Dev\\\\G1\\g1-main\\G1_Baseline\\src\\SpaFinder.SpaBooker\\Presentation\\SpaFinder.SpaBooker.WebApps.Admin\\'
+G1_MICRO_ROOT='C:\\Dev\\\\G1\\g1-svc-micro\\'
+G1_LEGACY_ROOT='C:\\Dev\\\\G1\\g1-svc-legacypayments\\'
 
-USER_ROOT='C:\\Users\\a206505611'
-USER_DATA_ROOT='C:\\Users\\a206505611\\UserData'
-G1_DB_ROOT='//Mac/AllFiles/Users/a206505611/Dev/G1/g1-database'
+USER_ROOT='C:\\Users\\206505611'
+USER_DATA_ROOT='C:\\Users\\206505611\\UserData'
+G1_DB_ROOT='//Mac/AllFiles/Users/206505611/Dev/G1/g1-database'
 MAC_ROOT='//Mac/AllFiles'
 
 alias db="cd $G1_DB_ROOT"
