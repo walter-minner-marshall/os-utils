@@ -122,6 +122,20 @@ function existgbr()
 }
 
 ###############################################
+# OpenAPI
+# Need to install
+## python3
+## pip3 install requests
+# oasdiff
+###############################################
+function gencl()
+{
+	python3 ~/Dev/os-utils/Mac/download_ticketingapi_swags.py
+	oasdiff changelog -f html ticketing_gatewayapi.stage.json ticketing_gatewayapi.dev.json > ticketing_gatewayapi_changelog.html
+}
+
+
+###############################################
 # Other Functions
 ###############################################
 
