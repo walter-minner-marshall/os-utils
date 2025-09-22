@@ -32,26 +32,6 @@
         },
         {
             "options": {
-                "connectionName": "D028",
-                "server": "USHGNDBWD028.stg-tfayd.com\\I0007DS01,4070",
-                "database": "",
-                "authenticationType": "SqlLogin",
-                "user": "gnDEV",
-                "password": "",
-                "applicationName": "azdata",
-                "encrypt": "true",
-                "trustServerCertificate": "true",
-                "azureTenantId": "4f3526f9-97d6-412d-933a-4e30a73110f4",
-                "groupId": "df521eca-20e3-44fa-881f-9547a53fedf6",
-                "databaseDisplayName": ""
-            },
-            "groupId": "df521eca-20e3-44fa-881f-9547a53fedf6",
-            "providerName": "MSSQL",
-            "savePassword": true,
-            "id": "47e4046d-a1f8-4faa-9c38-2bf59bb49054"
-        },
-        {
-            "options": {
                 "connectionName": "DOCKER-DB",
                 "server": "localhost",
                 "database": "",
