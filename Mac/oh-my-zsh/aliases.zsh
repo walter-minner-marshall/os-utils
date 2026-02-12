@@ -96,3 +96,8 @@ alias tsclear="cd $TEESHEET && make dev-clear && cd -"
 
 alias dbrun="cd $DOCKER_DB && docker-compose up -d && cd -"
 alias dbstop="cd $DOCKER_DB && docker-compose down && cd -"
+
+#G1 Docs
+alias docsup="docker compose -f ~/Dev/docs/golfnowone/docker-compose.yml up -d"
+alias docsdown="docker compose -f ~/Dev/docs/golfnowone/docker-compose.yml down"
+alias docsrestart="docker compose -f ~/Dev/docs/golfnowone/docker-compose.yml restart mkdocs"
