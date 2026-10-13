@@ -161,3 +161,43 @@ function hidden()
 		chflags hidden ${1:--ERROR}
 	fi
 }
+
+# Speed test via macOS built-in networkQuality; pretty output
+speedtest() {
+  command -v networkQuality >/dev/null || { print -P "%F{red}networkQuality not found (needs macOS 12+)%f"; return 1; }
+  command -v jq >/dev/null || { print -P "%F{red}jq required%f"; return 1; }
+  print -P "%F{cyan}Running speed test...%f"
+  local json
+  json=$(networkQuality -c -M "${1:-15}" 2>/dev/null) || { print -P "%F{red}Test failed%f"; return 1; }
+
+  local dl ul rtt rpm_dl rpm_ul iface
+  dl=$(jq -r '(.dl_throughput // 0) / 1000000' <<<"$json")
+  ul=$(jq -r '(.ul_throughput // 0) / 1000000' <<<"$json")
+  rtt=$(jq -r '.base_rtt // 0' <<<"$json")
+  rpm_dl=$(jq -r '.dl_responsiveness // .responsiveness // 0' <<<"$json")
+  rpm_ul=$(jq -r '.ul_responsiveness // .responsiveness // 0' <<<"$json")
+  iface=$(jq -r '.interface_name // "?"' <<<"$json")
+
+  _st_bar() { # value max -> 30-wide bar
+    local n=$(( ${1%.*} * 30 / $2 )); (( n > 30 )) && n=30; (( n < 0 )) && n=0
+    printf '%s%s' "${(l:$n::█:)}" "${(l:$((30-n))::░:)}"
+  }
+  _st_rating() { # rpm -> label
+    local r=${1%.*}
+    if (( r >= 1000 )); then print -n "%F{green}High%f"
+    elif (( r >= 300 )); then print -n "%F{yellow}Medium%f"
+    else print -n "%F{red}Low%f"; fi
+  }
+
+  print
+  print -P "%B%F{blue}╭──────────────────────────────────────────────╮%f%b"
+  print -P "%B%F{blue}│%f          %BSPEED TEST%b  %F{8}($iface)%f"
+  print -P "%B%F{blue}╰──────────────────────────────────────────────╯%f%b"
+  printf '\n'
+  print -P "  %F{green}⬇  Download%f  %B$(printf '%8.1f' $dl)%b Mbps  %F{green}$(_st_bar $dl 1000)%f"
+  print -P "  %F{magenta}⬆  Upload  %f  %B$(printf '%8.1f' $ul)%b Mbps  %F{magenta}$(_st_bar $ul 1000)%f"
+  print -P "  %F{yellow}⏱  Latency %f  %B$(printf '%8.1f' $rtt)%b ms"
+  print -P "  %F{cyan}⚡ Responsiveness%f  ↓ $(printf '%.0f' $rpm_dl) RPM $(_st_rating $rpm_dl)   ↑ $(printf '%.0f' $rpm_ul) RPM $(_st_rating $rpm_ul)"
+  print
+  unfunction _st_bar _st_rating
+}
