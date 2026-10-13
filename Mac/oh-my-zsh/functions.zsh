@@ -194,8 +194,8 @@ speedtest() {
   print -P "%B%F{blue}│%f          %BSPEED TEST%b  %F{8}($iface)%f"
   print -P "%B%F{blue}╰──────────────────────────────────────────────╯%f%b"
   printf '\n'
-  print -P "  %F{green}⬇  Download%f  %B$(printf '%8.1f' $dl)%b Mbps  %F{green}$(_st_bar $dl 1000)%f"
-  print -P "  %F{magenta}⬆  Upload  %f  %B$(printf '%8.1f' $ul)%b Mbps  %F{magenta}$(_st_bar $ul 1000)%f"
+  print -P "  %F{green}⬇  Download%f  %B$(printf '%8.1f' $dl)%b Mbps  %F{green}$(_st_bar $dl 1200)%f"
+  print -P "  %F{magenta}⬆  Upload  %f  %B$(printf '%8.1f' $ul)%b Mbps  %F{magenta}$(_st_bar $ul 1200)%f"
   print -P "  %F{yellow}⏱  Latency %f  %B$(printf '%8.1f' $rtt)%b ms"
   print -P "  %F{cyan}⚡ Responsiveness%f  ↓ $(printf '%.0f' $rpm_dl) RPM $(_st_rating $rpm_dl)   ↑ $(printf '%.0f' $rpm_ul) RPM $(_st_rating $rpm_ul)"
   print
